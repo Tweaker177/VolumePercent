@@ -1,4 +1,5 @@
 #include "vppRootListController.h"
+#import <spawn.h>
 #import <Preferences/PSSpecifier.h>
 @implementation vppRootListController
 
@@ -31,7 +32,15 @@
 
 -(void)apply{
 	[self.view endEditing:YES];
+         [self respring:sender];
 }
+
+- (void)respring:(id)sender {
+	pid_t pid;
+    const char* args[] = {"killall", "backboardd", NULL};
+    posix_spawn(&pid, "/usr/bin/killall", NULL, NULL, (char* const*)args, NULL);
+}
+
 
 - (void)sourceLink
 {
