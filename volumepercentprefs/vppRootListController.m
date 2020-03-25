@@ -1,5 +1,5 @@
 #include "vppRootListController.h"
-#import <Preferences/PSSpecifier.h>
+
 @implementation vppRootListController
 
 - (id)readPreferenceValue:(PSSpecifier*)specifier {
